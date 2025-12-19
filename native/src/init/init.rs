@@ -147,7 +147,7 @@ impl MagiskInit {
         let argv1 = unsafe { *self.argv.offset(1) };
         if !argv1.is_null() && unsafe { CStr::from_ptr(argv1) == c"selinux_setup" } {
             self.second_stage();
-        } else if self.config.skip_initramfs {
+        } else if false && self.config.skip_initramfs {
             self.legacy_system_as_root();
         } else if self.config.force_normal_boot {
             self.first_stage();
