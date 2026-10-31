@@ -157,6 +157,10 @@ void BootConfig::set(const kv_pairs &kv) noexcept {
             }
         }
     }
+    
+    // === ПАТЧ ПРИМЕНЕН ЗДЕСЬ ===
+    // Принудительно отключаем детекцию 2SI/SAR после чтения всех параметров cmdline
+    skip_initramfs = false;
 }
 
 #define read_dt(name, key)                                          \
